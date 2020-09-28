@@ -80,7 +80,7 @@
 <p>Existem dois arquivos disponíveis, em que a diferença é o período dos dados. Caso você não utilize <code>R</code> e queira ter acesso aos dados em formato <code>.csv</code>, os mesmos podem ser acessados através dos links a seguir. Lembrete: o arquivo foi salvo em formato “separado por ponto e vírgula”, e com encoding “UTF-8”.</p>
 <ul>
 <li><p><code>mananciais_consolidado</code> - 2000 à 2019 - <a href="https://beatrizmilz.github.io/mananciais/data/mananciais_consolidado.csv">Baixar versão <code>.csv</code></a></p></li>
-<li><p><code>mananciais</code> - 2000 à 2020 (parcial) - <a href="https://beatrizmilz.github.io/mananciais/data/mananciais.csv">Baixar versão <code>.csv</code></a>, atualizado em: 27/09/2020.</p></li>
+<li><p><code>mananciais</code> - 2000 à 2020 (parcial) - <a href="https://beatrizmilz.github.io/mananciais/data/mananciais.csv">Baixar versão <code>.csv</code></a>, atualizado em: 28/09/2020.</p></li>
 </ul>
 <div id="instalação" class="section level2">
 <h2 class="hasAnchor">
@@ -98,15 +98,15 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/beatrizmilz/mananciais">mananciais</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mananciais</span><span class="op">)</span>
-<span class="co">#&gt; tibble [46,426 × 8] (S3: tbl_df/tbl/data.frame)</span>
-<span class="co">#&gt;  $ data               : Date[1:46426], format: "2020-01-01" "2020-01-01" ...</span>
-<span class="co">#&gt;  $ sistema            : chr [1:46426] "Cantareira" "Alto Tietê" "Guarapiranga" "Cotia" ...</span>
-<span class="co">#&gt;  $ volume_porcentagem : num [1:46426] 40.3 76.6 64 73.4 82.6 97.6 58.8 40.4 76.4 63.6 ...</span>
-<span class="co">#&gt;  $ volume_variacao    : num [1:46426] -0.1 -0.2 -0.5 -0.4 -0.3 -0.5 -0.1 0.1 -0.2 -0.4 ...</span>
-<span class="co">#&gt;  $ volume_operacional : num [1:46426] 396 429.2 109.6 12.1 92.7 ...</span>
-<span class="co">#&gt;  $ pluviometria_dia   : num [1:46426] 0.2 0 0.6 0 0 0 0 16.6 10.2 1.6 ...</span>
-<span class="co">#&gt;  $ pluviometria_mensal: num [1:46426] 0.2 0 0.6 0 0 0 0 16.8 10.2 2.2 ...</span>
-<span class="co">#&gt;  $ pluviometria_hist  : num [1:46426] 263 246 229 225 251 ...</span>
+<span class="co">#&gt; tibble [46,433 × 8] (S3: tbl_df/tbl/data.frame)</span>
+<span class="co">#&gt;  $ data               : Date[1:46433], format: "2020-01-01" "2020-01-01" ...</span>
+<span class="co">#&gt;  $ sistema            : chr [1:46433] "Cantareira" "Alto Tietê" "Guarapiranga" "Cotia" ...</span>
+<span class="co">#&gt;  $ volume_porcentagem : num [1:46433] 40.3 76.6 64 73.4 82.6 97.6 58.8 40.4 76.4 63.6 ...</span>
+<span class="co">#&gt;  $ volume_variacao    : num [1:46433] -0.1 -0.2 -0.5 -0.4 -0.3 -0.5 -0.1 0.1 -0.2 -0.4 ...</span>
+<span class="co">#&gt;  $ volume_operacional : num [1:46433] 396 429.2 109.6 12.1 92.7 ...</span>
+<span class="co">#&gt;  $ pluviometria_dia   : num [1:46433] 0.2 0 0.6 0 0 0 0 16.6 10.2 1.6 ...</span>
+<span class="co">#&gt;  $ pluviometria_mensal: num [1:46433] 0.2 0 0.6 0 0 0 0 16.8 10.2 2.2 ...</span>
+<span class="co">#&gt;  $ pluviometria_hist  : num [1:46433] 263 246 229 225 251 ...</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mananciais_consolidado</span><span class="op">)</span>
 <span class="co">#&gt; tibble [44,529 × 8] (S3: tbl_df/tbl/data.frame)</span>
@@ -149,73 +149,73 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">2020-09-27</td>
+<td align="left">2020-09-28</td>
 <td align="left">Cantareira</td>
-<td align="right">42.1</td>
+<td align="right">41.9</td>
 <td align="right">-0.2</td>
-<td align="right">413.23628</td>
-<td align="right">0</td>
+<td align="right">411.29629</td>
+<td align="right">0.0</td>
 <td align="right">22.2</td>
 <td align="right">83.9</td>
 </tr>
 <tr class="even">
-<td align="left">2020-09-27</td>
+<td align="left">2020-09-28</td>
 <td align="left">Alto Tietê</td>
-<td align="right">60.9</td>
+<td align="right">60.7</td>
 <td align="right">-0.2</td>
-<td align="right">341.09546</td>
-<td align="right">0</td>
+<td align="right">339.87505</td>
+<td align="right">0.0</td>
 <td align="right">19.1</td>
 <td align="right">80.0</td>
 </tr>
 <tr class="odd">
-<td align="left">2020-09-27</td>
+<td align="left">2020-09-28</td>
 <td align="left">Guarapiranga</td>
-<td align="right">46.9</td>
-<td align="right">-0.1</td>
-<td align="right">80.25369</td>
-<td align="right">0</td>
+<td align="right">46.6</td>
+<td align="right">-0.3</td>
+<td align="right">79.80773</td>
+<td align="right">0.0</td>
 <td align="right">11.0</td>
 <td align="right">77.8</td>
 </tr>
 <tr class="even">
-<td align="left">2020-09-27</td>
+<td align="left">2020-09-28</td>
 <td align="left">Cotia</td>
-<td align="right">64.4</td>
-<td align="right">-0.4</td>
-<td align="right">10.63207</td>
-<td align="right">0</td>
+<td align="right">64.1</td>
+<td align="right">-0.3</td>
+<td align="right">10.57418</td>
+<td align="right">0.0</td>
 <td align="right">6.6</td>
 <td align="right">82.5</td>
 </tr>
 <tr class="odd">
-<td align="left">2020-09-27</td>
+<td align="left">2020-09-28</td>
 <td align="left">Rio Grande</td>
 <td align="right">78.0</td>
-<td align="right">-0.2</td>
+<td align="right">0.0</td>
 <td align="right">87.52755</td>
-<td align="right">0</td>
+<td align="right">0.0</td>
 <td align="right">25.4</td>
 <td align="right">95.0</td>
 </tr>
 <tr class="even">
-<td align="left">2020-09-27</td>
+<td align="left">2020-09-28</td>
 <td align="left">Rio Claro</td>
-<td align="right">63.5</td>
-<td align="right">-0.5</td>
-<td align="right">8.67788</td>
-<td align="right">0</td>
-<td align="right">89.8</td>
+<td align="right">62.9</td>
+<td align="right">-0.6</td>
+<td align="right">8.59354</td>
+<td align="right">0.6</td>
+<td align="right">90.4</td>
 <td align="right">141.6</td>
 </tr>
 <tr class="odd">
-<td align="left">2020-09-27</td>
+<td align="left">2020-09-28</td>
 <td align="left">São Lourenço</td>
-<td align="right">64.4</td>
-<td align="right">-0.5</td>
-<td align="right">57.16546</td>
-<td align="right">0</td>
-<td align="right">19.0</td>
+<td align="right">64.3</td>
+<td align="right">-0.1</td>
+<td align="right">57.07153</td>
+<td align="right">2.6</td>
+<td align="right">21.6</td>
 <td align="right">115.9</td>
 </tr>
 </tbody>
