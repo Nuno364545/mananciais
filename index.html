@@ -76,11 +76,7 @@
 
 <p>O objetivo deste pacote é disponibilizar a base de dados sobre volume armazenado em mananciais de abastecimento público na Região Metropolitana de São Paulo (SP - Brasil).</p>
 <p>Os dados foram obtidos no <a href="http://mananciais.sabesp.com.br/Situacao">Portal dos Mananciais</a> da <a href="http://site.sabesp.com.br/site/Default.aspx">SABESP</a>, através dos dados disponíveis na <a href="http://mananciais.sabesp.com.br/api/Mananciais/ResumoSistemas/2020-01-01">API</a>.</p>
-<p>Existem dois arquivos disponíveis, em que a diferença é o período dos dados. Caso você não utilize <code>R</code> e queira ter acesso aos dados em formato <code>.csv</code>, os mesmos podem ser acessados através dos links a seguir. Lembrete: o arquivo foi salvo em formato “separado por ponto e vírgula”, e com encoding “UTF-8”.</p>
-<ul>
-<li><p><code>mananciais_consolidado</code> - 2000 à 2019 - <a href="https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais_consolidado.csv">Baixar versão <code>.csv</code></a></p></li>
-<li><p><code>mananciais</code> - 2000 à 2020 (parcial) - <a href="https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv">Baixar versão <code>.csv</code></a>, atualizado em: 28/09/2020.</p></li>
-</ul>
+<p>Este pacote foi derivado de um código web scraping desenvolvido pela equipe da <a href="https://www.curso-r.com/">Curso-R</a>, em uma <a href="https://youtu.be/jvZIxrMmOcQ">live</a>, e o código original está disponível <a href="https://github.com/curso-r/lives/blob/master/drafts/20200730_scraper_sabesp.R">neste link</a>.</p>
 <div id="instalação" class="section level2">
 <h2 class="hasAnchor">
 <a href="#instala%C3%A7%C3%A3o" class="anchor"></a>Instalação</h2>
@@ -89,15 +85,20 @@
 <span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"beatrizmilz/mananciais"</span><span class="op">)</span></pre></div>
 </div>
-<div id="exemplos" class="section level2">
+<div id="como-usar" class="section level2">
 <h2 class="hasAnchor">
-<a href="#exemplos" class="anchor"></a>Exemplos</h2>
+<a href="#como-usar" class="anchor"></a>Como usar?</h2>
+<p>Existem dois arquivos disponíveis, em que a diferença é o período dos dados. Caso você não utilize <code>R</code> e queira ter acesso aos dados em formato <code>.csv</code>, os mesmos podem ser acessados através dos links a seguir. Lembrete: o arquivo foi salvo em formato “separado por ponto e vírgula”, e com encoding “UTF-8”.</p>
+<ul>
+<li><p><code>mananciais_consolidado</code> - 2000 à 2019 - <a href="https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais_consolidado.csv">Baixar versão <code>.csv</code></a></p></li>
+<li><p><code>mananciais</code> - 2000 à 2020 (parcial) - <a href="https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv">Baixar versão <code>.csv</code></a>. Esse arquivo é atualizado através de um workflow no <a href="https://github.com/beatrizmilz/mananciais/actions">GitHub Actions</a>.</p></li>
+</ul>
 <p>Abaixo segue um exemplo das bases disponíveis:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/beatrizmilz/mananciais">mananciais</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mananciais</span><span class="op">)</span>
-<span class="co">#&gt; tibble [46,433 × 8] (S3: tbl_df/tbl/data.frame)</span>
+<span class="co">#&gt; tibble [46,433 x 8] (S3: tbl_df/tbl/data.frame)</span>
 <span class="co">#&gt;  $ data               : Date[1:46433], format: "2020-01-01" "2020-01-01" ...</span>
 <span class="co">#&gt;  $ sistema            : chr [1:46433] "Cantareira" "Alto Tietê" "Guarapiranga" "Cotia" ...</span>
 <span class="co">#&gt;  $ volume_porcentagem : num [1:46433] 40.3 76.6 64 73.4 82.6 97.6 58.8 40.4 76.4 63.6 ...</span>
@@ -108,7 +109,7 @@
 <span class="co">#&gt;  $ pluviometria_hist  : num [1:46433] 263 246 229 225 251 ...</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mananciais_consolidado</span><span class="op">)</span>
-<span class="co">#&gt; tibble [44,529 × 8] (S3: tbl_df/tbl/data.frame)</span>
+<span class="co">#&gt; tibble [44,529 x 8] (S3: tbl_df/tbl/data.frame)</span>
 <span class="co">#&gt;  $ data               : Date[1:44529], format: "2000-01-01" "2000-01-01" ...</span>
 <span class="co">#&gt;  $ sistema            : chr [1:44529] "Cantareira" "Alto Tietê" "Guarapiranga" "Cotia" ...</span>
 <span class="co">#&gt;  $ volume_porcentagem : num [1:44529] 47.1 50.9 36 18.8 81 73.2 47.8 51.4 36.4 18.8 ...</span>
@@ -117,10 +118,25 @@
 <span class="co">#&gt;  $ pluviometria_dia   : num [1:44529] 30.9 26 47.2 0 0 5.2 29.1 47.3 9.2 33.2 ...</span>
 <span class="co">#&gt;  $ pluviometria_mensal: num [1:44529] 30.9 26 47.2 0 0 5.2 60 73.3 56.4 33.2 ...</span>
 <span class="co">#&gt;  $ pluviometria_hist  : num [1:44529] 255 238 225 218 235 ...</span></pre></div>
+<p>Caso você queira utilizar a base mais atual, sem que seja necessário reinstalar o pacote, recomendo que utilize o seguinte código:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="va">mananciais</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv2</a></span><span class="op">(</span><span class="st">"https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv"</span><span class="op">)</span>
+<span class="co">#&gt; Using ',' as decimal and '.' as grouping mark. Use read_delim() for more control.</span>
+<span class="co">#&gt; Parsed with column specification:</span>
+<span class="co">#&gt; cols(</span>
+<span class="co">#&gt;   data = col_date(format = ""),</span>
+<span class="co">#&gt;   sistema = col_character(),</span>
+<span class="co">#&gt;   volume_porcentagem = col_double(),</span>
+<span class="co">#&gt;   volume_variacao = col_double(),</span>
+<span class="co">#&gt;   volume_operacional = col_double(),</span>
+<span class="co">#&gt;   pluviometria_dia = col_double(),</span>
+<span class="co">#&gt;   pluviometria_mensal = col_double(),</span>
+<span class="co">#&gt;   pluviometria_hist = col_double()</span>
+<span class="co">#&gt; )</span></pre></div>
 <div id="exemplo-de-tabela" class="section level3">
 <h3 class="hasAnchor">
 <a href="#exemplo-de-tabela" class="anchor"></a>Exemplo de tabela</h3>
-<div class="sourceCode" id="cb3"><pre class="downlit">
+<div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="va">mananciais</span> <span class="op">%&gt;%</span> 
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -228,7 +244,7 @@
 <div id="desde-o-início-dos-dados" class="section level2">
 <h2 class="hasAnchor">
 <a href="#desde-o-in%C3%ADcio-dos-dados" class="anchor"></a>Desde o início dos dados</h2>
-<div class="sourceCode" id="cb4"><pre class="downlit">
+<div class="sourceCode" id="cb5"><pre class="downlit">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 <span class="va">mananciais</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
@@ -241,7 +257,7 @@
 <div id="apenas-ano-atual" class="section level3">
 <h3 class="hasAnchor">
 <a href="#apenas-ano-atual" class="anchor"></a>Apenas ano atual</h3>
-<div class="sourceCode" id="cb5"><pre class="downlit">
+<div class="sourceCode" id="cb6"><pre class="downlit">
 <span class="va">mananciais</span> <span class="op">%&gt;%</span>
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>ano <span class="op">=</span> <span class="fu">lubridate</span><span class="fu">::</span><span class="fu"><a href="http://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ano</span> <span class="op">==</span> <span class="fl">2020</span><span class="op">)</span> <span class="op">%&gt;%</span> 
