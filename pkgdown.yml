@@ -1,6 +1,7 @@
 pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2020-10-09T12:52Z
+articles:
+  graficos: graficos.html
+last_built: 2020-10-09T13:17Z
 
