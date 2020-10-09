@@ -57,7 +57,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/graficos.html">Fazendo gráficos com os dados</a>
+      <a href="articles/graficos.html">Criando gráficos com os dados do pacote {mananciais}</a>
     </li>
   </ul>
 </li>
@@ -109,33 +109,38 @@
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/beatrizmilz/mananciais">mananciais</a></span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mananciais</span><span class="op">)</span>
-<span class="co">#&gt; tibble [46,468 x 8] (S3: tbl_df/tbl/data.frame)</span>
-<span class="co">#&gt;  $ data               : Date[1:46468], format: "2020-01-01" "2020-01-01" ...</span>
-<span class="co">#&gt;  $ sistema            : chr [1:46468] "Cantareira" "Alto Tietê" "Guarapiranga" "Cotia" ...</span>
-<span class="co">#&gt;  $ volume_porcentagem : num [1:46468] 40.3 76.6 64 73.4 82.6 97.6 58.8 40.4 76.4 63.6 ...</span>
-<span class="co">#&gt;  $ volume_variacao    : num [1:46468] -0.1 -0.2 -0.5 -0.4 -0.3 -0.5 -0.1 0.1 -0.2 -0.4 ...</span>
-<span class="co">#&gt;  $ volume_operacional : num [1:46468] 396 429.2 109.6 12.1 92.7 ...</span>
-<span class="co">#&gt;  $ pluviometria_dia   : num [1:46468] 0.2 0 0.6 0 0 0 0 16.6 10.2 1.6 ...</span>
-<span class="co">#&gt;  $ pluviometria_mensal: num [1:46468] 0.2 0 0.6 0 0 0 0 16.8 10.2 2.2 ...</span>
-<span class="co">#&gt;  $ pluviometria_hist  : num [1:46468] 263 246 229 225 251 ...</span>
+<span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">mananciais</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 46,468</span>
+<span class="co">#&gt; Columns: 8</span>
+<span class="co">#&gt; $ data                &lt;date&gt; 2020-01-01, 2020-01-01, 2020-01-01, 2020-01-01...</span>
+<span class="co">#&gt; $ sistema             &lt;chr&gt; "Cantareira", "Alto Tietê", "Guarapiranga", "Co...</span>
+<span class="co">#&gt; $ volume_porcentagem  &lt;dbl&gt; 40.3, 76.6, 64.0, 73.4, 82.6, 97.6, 58.8, 40.4,...</span>
+<span class="co">#&gt; $ volume_variacao     &lt;dbl&gt; -0.1, -0.2, -0.5, -0.4, -0.3, -0.5, -0.1, 0.1, ...</span>
+<span class="co">#&gt; $ volume_operacional  &lt;dbl&gt; 395.99619, 429.18570, 109.63346, 12.10735, 92.7...</span>
+<span class="co">#&gt; $ pluviometria_dia    &lt;dbl&gt; 0.2, 0.0, 0.6, 0.0, 0.0, 0.0, 0.0, 16.6, 10.2, ...</span>
+<span class="co">#&gt; $ pluviometria_mensal &lt;dbl&gt; 0.2, 0.0, 0.6, 0.0, 0.0, 0.0, 0.0, 16.8, 10.2, ...</span>
+<span class="co">#&gt; $ pluviometria_hist   &lt;dbl&gt; 262.6, 246.1, 228.9, 224.7, 250.6, 296.6, 272.6...</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mananciais_consolidado</span><span class="op">)</span>
-<span class="co">#&gt; tibble [44,529 x 8] (S3: tbl_df/tbl/data.frame)</span>
-<span class="co">#&gt;  $ data               : Date[1:44529], format: "2000-01-01" "2000-01-01" ...</span>
-<span class="co">#&gt;  $ sistema            : chr [1:44529] "Cantareira" "Alto Tietê" "Guarapiranga" "Cotia" ...</span>
-<span class="co">#&gt;  $ volume_porcentagem : num [1:44529] 47.1 50.9 36 18.8 81 73.2 47.8 51.4 36.4 18.8 ...</span>
-<span class="co">#&gt;  $ volume_variacao    : num [1:44529] 0.3 0.1 0 0.9 0.4 -0.2 0.7 0.5 0.4 0 ...</span>
-<span class="co">#&gt;  $ volume_operacional : num [1:44529] 365.51 196.03 64.8 2.65 91.69 ...</span>
-<span class="co">#&gt;  $ pluviometria_dia   : num [1:44529] 30.9 26 47.2 0 0 5.2 29.1 47.3 9.2 33.2 ...</span>
-<span class="co">#&gt;  $ pluviometria_mensal: num [1:44529] 30.9 26 47.2 0 0 5.2 60 73.3 56.4 33.2 ...</span>
-<span class="co">#&gt;  $ pluviometria_hist  : num [1:44529] 255 238 225 218 235 ...</span></pre></div>
-<p>Caso você queira utilizar a base mais atual, sem que seja necessário reinstalar o pacote, recomendo que utilize o seguinte código:</p>
+<span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">mananciais_consolidado</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 44,529</span>
+<span class="co">#&gt; Columns: 8</span>
+<span class="co">#&gt; $ data                &lt;date&gt; 2000-01-01, 2000-01-01, 2000-01-01, 2000-01-01...</span>
+<span class="co">#&gt; $ sistema             &lt;chr&gt; "Cantareira", "Alto Tietê", "Guarapiranga", "Co...</span>
+<span class="co">#&gt; $ volume_porcentagem  &lt;dbl&gt; 47.1, 50.9, 36.0, 18.8, 81.0, 73.2, 47.8, 51.4,...</span>
+<span class="co">#&gt; $ volume_variacao     &lt;dbl&gt; 0.3, 0.1, 0.0, 0.9, 0.4, -0.2, 0.7, 0.5, 0.4, 0...</span>
+<span class="co">#&gt; $ volume_operacional  &lt;dbl&gt; 365.50555, 196.02547, 64.80029, 2.64579, 91.694...</span>
+<span class="co">#&gt; $ pluviometria_dia    &lt;dbl&gt; 30.9, 26.0, 47.2, 0.0, 0.0, 5.2, 29.1, 47.3, 9....</span>
+<span class="co">#&gt; $ pluviometria_mensal &lt;dbl&gt; 30.9, 26.0, 47.2, 0.0, 0.0, 5.2, 60.0, 73.3, 56...</span>
+<span class="co">#&gt; $ pluviometria_hist   &lt;dbl&gt; 254.8, 238.1, 225.2, 217.8, 235.4, 292.0, 254.8...</span></pre></div>
+<p>Caso queira saber o significado de cada variável, leia a <a href="https://beatrizmilz.github.io/mananciais/reference/mananciais.html">documentação da base de dados</a> ou utilize a seguinte função:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="op">?</span><span class="fu">mananciais</span><span class="fu">::</span><span class="va"><a href="reference/mananciais.html">mananciais</a></span></pre></div>
+<p>Caso você queira utilizar a base mais atual, sem que seja necessário reinstalar o pacote, recomendo que utilize o seguinte código:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="va">mananciais</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv2</a></span><span class="op">(</span><span class="st">"https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv"</span><span class="op">)</span>
 <span class="co">#&gt; i Using ',' as decimal and '.' as grouping mark. Use `read_delim()` for more control.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; -- Column specification -------------------------------------------------------------</span>
+<span class="co">#&gt; -- Column specification ------------------------------------------------------</span>
 <span class="co">#&gt; cols(</span>
 <span class="co">#&gt;   data = col_date(format = ""),</span>
 <span class="co">#&gt;   sistema = col_character(),</span>
@@ -149,7 +154,7 @@
 <div id="exemplo-de-tabela" class="section level3">
 <h3 class="hasAnchor">
 <a href="#exemplo-de-tabela" class="anchor"></a>Exemplo de tabela</h3>
-<div class="sourceCode" id="cb4"><pre class="downlit">
+<div class="sourceCode" id="cb5"><pre class="downlit">
 <span class="va">mananciais</span> <span class="op">%&gt;%</span> 
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span> <span class="op">%&gt;%</span>
